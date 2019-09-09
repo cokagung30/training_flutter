@@ -25,7 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   animated_splash: ^1.0.0
   progress_button: ^0.0.1
-  beauty_textfield: ^0.0.1
+  toast: ^0.1.5
 
 dev_dependencies:
   flutter_test:

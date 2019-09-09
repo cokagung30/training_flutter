@@ -1,6 +1,6 @@
-import 'package:beauty_textfield/beauty_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_button/progress_button.dart';
+import 'package:toast/toast.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,6 +24,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  final username = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -43,44 +46,32 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin: EdgeInsets.only(left: 20, right: 20),
-                child: BeautyTextfield(
-                  width: double.maxFinite,
-                  height: 60,
-                  inputType: TextInputType.text,
-                  textColor: Colors.black,
-                  accentColor: Colors.white,
-                  backgroundColor: Colors.black,
-                  placeholder: "Username",
-                  prefixIcon: Icon(Icons.people),
-                  minLines: 1,
-                  maxLines: 1,
-                  wordSpacing: 0,
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      isDense: true,
+                      labelText: 'Username',
+                  ),
+                  controller: username,
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                child: BeautyTextfield(
-                  width: double.maxFinite,
-                  height: 60,
-                  inputType: TextInputType.text,
-                  textColor: Colors.black,
-                  accentColor: Colors.white,
-                  backgroundColor: Colors.black,
-                  placeholder: "Password",
-                  prefixIcon: Icon(Icons.lock_outline),
-                  minLines: 1,
-                  maxLines: 1,
-                  wordSpacing: 0,
-                  obscureText: true,
-                  suffixIcon: Icon(Icons.remove_red_eye),
-                  onClickSuffix: () {},
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    isDense: true,
+                    labelText: 'Password'
+                  ),
                 ),
               ),
               Container(
                   margin:
                       EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
                   child: ProgressButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Toast.show(username.text.toString(), context, duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
+                    },
                     buttonState: ButtonState.normal,
                     child: new Text(
                       'LOGIN',
