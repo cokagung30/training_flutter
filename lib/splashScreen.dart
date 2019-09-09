@@ -26,7 +26,7 @@ class SplashScreenState extends State<SplashScreen> {
             child: AnimatedSplash(
               imagePath: 'assets/baliWork.png',
               home: MyApp(),
-              duration: 10000,
+              duration: 2500,
               type: AnimatedSplashType.BackgroundProcess,
               outputAndHome: op,
             )
